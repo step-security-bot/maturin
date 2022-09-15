@@ -1,6 +1,7 @@
 //! To speed up the tests, they are tests all collected in a single module
 
 use common::{develop, editable, errors, handle_result, integration, other};
+use std::path::Path;
 
 mod common;
 
@@ -119,6 +120,7 @@ fn integration_pyo3_bin() {
         None,
         "integration_pyo3_bin",
         false,
+        None,
     ));
 }
 
@@ -129,6 +131,7 @@ fn integration_pyo3_pure() {
         None,
         "integration_pyo3_pure",
         false,
+        None,
     ));
 }
 
@@ -139,6 +142,7 @@ fn integration_pyo3_mixed() {
         None,
         "integration_pyo3_mixed",
         false,
+        None,
     ));
 }
 
@@ -149,6 +153,7 @@ fn integration_pyo3_mixed_submodule() {
         None,
         "integration_pyo3_mixed_submodule",
         false,
+        None,
     ));
 }
 
@@ -159,6 +164,7 @@ fn integration_pyo3_mixed_py_subdir() {
         None,
         "integration_pyo3_mixed_py_subdir",
         cfg!(unix),
+        None,
     ));
 }
 
@@ -179,6 +185,7 @@ fn integration_cffi_pure() {
         None,
         "integration_cffi_pure",
         false,
+        None,
     ));
 }
 
@@ -189,6 +196,7 @@ fn integration_cffi_mixed() {
         None,
         "integration_cffi_mixed",
         false,
+        None,
     ));
 }
 
@@ -199,6 +207,7 @@ fn integration_hello_world() {
         None,
         "integration_hello_world",
         false,
+        None,
     ));
 }
 
@@ -209,8 +218,10 @@ fn integration_pyo3_ffi_pure() {
         None,
         "integration_pyo3_ffi_pure",
         false,
+        None,
     ));
 }
+
 #[test]
 fn integration_with_data() {
     handle_result(integration::test_integration(
@@ -218,7 +229,24 @@ fn integration_with_data() {
         None,
         "integration_with_data",
         false,
+        None,
     ));
+}
+
+#[test]
+fn integration_wasm_hello_world() {
+    handle_result(integration::test_integration(
+        "test-crates/hello-world",
+        None,
+        "integration_wasm_hello_world",
+        false,
+        Some("wasm32-wasi"),
+    ));
+
+    // Make sure we're actually running wasm
+    assert!(
+        Path::new("test-crates/venvs/hello-world-py3-wasm32-wasi/bin/hello-world.wasm").is_file()
+    )
 }
 
 #[test]
