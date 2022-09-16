@@ -243,7 +243,7 @@ fn integration_with_data() {
         any(target_arch = "x86_64", target_arch = "aarch64")
     ),
     all(
-        target_os = "max",
+        target_os = "macos",
         any(target_arch = "x86_64", target_arch = "aarch64")
     ),
 ))]
