@@ -240,7 +240,7 @@ version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "98cdaeae47871a543692dac2ad7cef3efdf1f9559a41e68a42507367e38c424f"
 dependencies = [
- "clap",
+ "clap 3.2.21",
 ]
 
 [[package]]
@@ -260,7 +260,7 @@ checksum = "f2ba119cbe3998beb157dff447d37fd845aa728b40c7ce9bcc472e486679ee1e"
 dependencies = [
  "anyhow",
  "cargo-options",
- "clap",
+ "clap 3.2.21",
  "dirs",
  "fs-err",
  "indicatif",
@@ -278,7 +278,7 @@ dependencies = [
  "anyhow",
  "cargo-options",
  "cargo_metadata",
- "clap",
+ "clap 3.2.21",
  "dirs",
  "fs-err",
  "path-slash",
@@ -378,7 +378,7 @@ dependencies = [
  "atty",
  "bitflags",
  "clap_derive",
- "clap_lex",
+ "clap_lex 0.2.4",
  "indexmap",
  "once_cell",
  "strsim",
@@ -388,22 +388,41 @@ dependencies = [
 ]
 
 [[package]]
+name = "clap"
+version = "4.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0a1af219c3e254a8b4649d6ddaef886b2015089f35f2ac5e1db31410c0566ab8"
+dependencies = [
+ "bitflags",
+ "clap_lex 0.3.0",
+]
+
+[[package]]
 name = "clap_complete"
 version = "3.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f7a2e0a962c45ce25afce14220bc24f9dade0a1787f185cecf96bfba7847cd8"
 dependencies = [
- "clap",
+ "clap 3.2.21",
+]
+
+[[package]]
+name = "clap_complete"
+version = "4.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "11cba7abac9b56dfe2f035098cdb3a43946f276e6db83b72c4e692343f9aab9a"
+dependencies = [
+ "clap 4.0.7",
 ]
 
 [[package]]
 name = "clap_complete_fig"
-version = "3.2.4"
+version = "4.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed37b4c0c1214673eba6ad8ea31666626bf72be98ffb323067d973c48b4964b9"
+checksum = "cf2fc15aa585faf3c59b96c40923b2f4d119c710a84e8a81251eed54ba75335c"
 dependencies = [
- "clap",
- "clap_complete",
+ "clap 4.0.7",
+ "clap_complete 4.0.2",
 ]
 
 [[package]]
@@ -424,6 +443,15 @@ name = "clap_lex"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2850f2f5a82cbf437dd5af4d49848fbdfc27c157c3d010345776f952765261c5"
+dependencies = [
+ "os_str_bytes",
+]
+
+[[package]]
+name = "clap_lex"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d4198f73e42b4936b35b5bb248d81d2b595ecb170da0bac7655c54eedfa8da8"
 dependencies = [
  "os_str_bytes",
 ]
@@ -1268,8 +1296,8 @@ dependencies = [
  "cargo_metadata",
  "cbindgen",
  "cc",
- "clap",
- "clap_complete",
+ "clap 3.2.21",
+ "clap_complete 3.2.5",
  "clap_complete_fig",
  "configparser",
  "console",
@@ -2372,18 +2400,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.36"
+version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a99cb8c4b9a8ef0e7907cd3b617cc8dc04d571c4e73c8ae403d80ac160bb122"
+checksum = "10deb33631e3c9018b9baf9dcbbc4f737320d2b576bac10f6aefa048fa407e3e"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.36"
+version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3a891860d3c8d66fec8e73ddb3765f90082374dbaaa833407b904a94f1a7eb43"
+checksum = "982d17546b47146b28f7c22e3d08465f6b8903d0ea13c1660d9d84a6e7adcdbb"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2865,7 +2893,7 @@ dependencies = [
  "bytes",
  "cab",
  "camino",
- "clap",
+ "clap 3.2.21",
  "cli-table",
  "flate2",
  "indicatif",
